@@ -70,9 +70,7 @@ export class TableComponent {
       this.selectedProductId = product.id;
       this.selectedProductDiscount = product.discountPercentage;
     })
-
-
-    modal.show();
+      modal.show();
   }
 
   //DELETE PRODUCT
@@ -147,30 +145,19 @@ export class TableComponent {
 
   // Open AddForm Modal
   openAddModal() {
-    const modalElement =
-      this.elementRef.nativeElement.querySelector('#addProductModal');
+    const modalElement = this.elementRef.nativeElement.querySelector('#addProductModal');
     const modal = new bootstrap.Modal(modalElement);
     modal.show();
   }
 
+  //Initializing Modals 
   private initializeModal() {
-    const modalElement =
-      this.elementRef.nativeElement.querySelector('#viewProductModal');
+    const modalElement = this.elementRef.nativeElement.querySelector('#viewProductModal');
     new bootstrap.Modal(modalElement, { backdrop: 'static', keyboard: false });
-    const updateModal = this.elementRef.nativeElement.querySelector(
-      '#updateProductModal'
-    );
+    const updateModal = this.elementRef.nativeElement.querySelector('#updateProductModal');
     new bootstrap.Modal(updateModal, { backdrop: 'static', keyboard: false });
-    const addModal =
-      this.elementRef.nativeElement.querySelector('#addProductModal');
+    const addModal = this.elementRef.nativeElement.querySelector('#addProductModal');
     new bootstrap.Modal(addModal, { backdrop: 'static', keyboard: false });
   }
 
-  closeModal() {
-    const modalElement = document.getElementById('myModal');
-    if (modalElement) {
-      const bootstrapModal = bootstrap.Modal.getInstance(modalElement);
-      if (bootstrapModal) bootstrapModal.hide();
-    }
-  }
 }
