@@ -45,5 +45,9 @@ export class TableService {
     return this.http.post<productResponse>('https://dummyjson.com/products/add',body,{headers:this.headers})
   }
 
+  viewProduct(productId:number){
+    return this.http.get<productResponse>(`https://dummyjson.com/products/${productId}`);
+  }
+
 
 }

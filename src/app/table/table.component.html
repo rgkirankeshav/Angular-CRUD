@@ -5,7 +5,7 @@
     <caption>List of users</caption>
     <thead class="sticky-top">
         <tr>
-            <th scope="col" *ngFor="let column of columnData">{{column}}</th>
+            <th *ngFor="let column of columnData">{{column}}</th>
         </tr>
     </thead>
     <tbody>
@@ -16,7 +16,7 @@
             <td>{{product.price | currency:'INR'}}</td>
             <td>{{product.discountPercentage}}</td>
             <td>
-                <a href="#" class="actionBtn btn btn-primary btn-sm" (click)="viewProduct(product)">
+                <a href="#" class="actionBtn btn btn-primary btn-sm" (click)="viewProduct(product.id)">
                     View
                 </a>
                 <a href="#" class="actionBtn btn btn-primary btn-sm" (click)="viewUpdateModal(product)">

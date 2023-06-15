@@ -59,16 +59,18 @@ export class TableComponent {
   }
 
   //VIEW PRODUCT OPENS BOOTSTRAP MODAL
-  viewProduct(product: productResponse) {
-    const modalElement =
-      this.elementRef.nativeElement.querySelector('#viewProductModal');
+  viewProduct(productId:number) {
+    const modalElement = this.elementRef.nativeElement.querySelector('#viewProductModal');
     const modal = new bootstrap.Modal(modalElement);
-    this.selectedProductName = product.title;
-    this.selectedProductBrand = product.brand;
-    this.selectedProductCategory = product.category;
-    this.selectedProductPrice = product.price;
-    this.selectedProductId = product.id;
-    this.selectedProductDiscount = product.discountPercentage;
+    this.tableService.viewProduct(productId).subscribe((product:productResponse) => {
+      this.selectedProductName = product.title;
+      this.selectedProductBrand = product.brand;
+      this.selectedProductCategory = product.category;
+      this.selectedProductPrice = product.price;
+      this.selectedProductId = product.id;
+      this.selectedProductDiscount = product.discountPercentage;
+    })
+
 
     modal.show();
   }
